@@ -19,13 +19,23 @@ describe('Test addPromise function', () => {
     });
 });
 
-describe.only('Test addPromise with async', () => {
+describe('Test addPromise with async', () => {
     it('Can add 2 numbers', async () => {
         const result = await addPromise(4, 5);
         assert.equal(result, 9);
     });
 
     it('Cannot add a number and a string', async () => {
-        
+        try {
+            const result = await addPromise('x', 5);
+            // throw new Error('Wrong');
+        } catch (error) {
+            assert.equal(error.message, 'Type error');
+        }
+    });
+
+    it('Cannot add a number and a string', async () => {
+        const result = await addPromise('x', 5).catch(error => error);
+        assert.equal(result.message, 'Type error');
     });
 });
