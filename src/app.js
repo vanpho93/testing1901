@@ -28,4 +28,5 @@ app.post('/cong/json', json(), (req, res) => {
     return res.status(200).send({ success: true, result: +a + +b });
 });
 
-app.listen(3000, () => console.log('Server started.'));
+
+module.exports = { app };
