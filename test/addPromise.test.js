@@ -18,3 +18,14 @@ describe('Test addPromise function', () => {
         });
     });
 });
+
+describe.only('Test addPromise with async', () => {
+    it('Can add 2 numbers', async () => {
+        const result = await addPromise(4, 5);
+        assert.equal(result, 9);
+    });
+
+    it('Cannot add a number and a string', async () => {
+        
+    });
+});
